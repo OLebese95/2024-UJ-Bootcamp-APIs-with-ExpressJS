@@ -8,6 +8,7 @@ import {enoughAirtime} from './enoughAirtime.js';
 
 // Create a new express application instance
 const app = express();
+const port = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
@@ -80,6 +81,6 @@ app.post('/api/enough', function (httpRequest, httpResponse) {
 
 // Start the server
 
-app.listen(3000, function () {
-    console.log('Example app listening on port 3000!');
-})
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}!`);
+});

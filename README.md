@@ -1,3 +1,7 @@
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
+
+
+
 # Bootcamp API Widget
 
 This project is created by Ofentse Lebese. You can contact me at fentselebese@gmail.com.
