@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootcamp API Widget</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="bootcamp.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        input[type="text"],
+        input[type="number"],
+        select {   
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        p {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" x-data="bootCampWidgets">
+        <h1 x-text="title"></h1>
+        
+        <div>
+            <h2>1. Word Game</h2>
+            <input type="text" x-model="sentence" placeholder="Type your sentence">
+            <button x-on:click="wordGames">Submit</button>
+            <template x-if="showResults">
+                <div>
+                    <p>Shortest Word: <span x-text="shortestWord"></span></p>
+                    <p>Longest Word: <span x-text="longestWord"></span></p>
+                    <p>Sum: <span x-text="sum"></span></p>
+                </div>
+            </template>
+
+            <h2>2. PhoneBill</h2>
+            <h3>Get Prices</h3>
+            <button x-show="!showPrices" x-on:click="getPrices; showPrices = !showPrices">Show Prices</button>
+            <button x-show="showPrices" x-on:click="showPrices = !showPrices">Hide Prices</button>
+            <div x-show="showPrices">
+                <p>Call Price: <span x-text="prices.call"></span></p>
+                <p>SMS Price: <span x-text="prices.sms"></span></p>
+            </div>
+
+            <h3>Calculate Phone Bill</h3>
+            <input type="text" x-model="usage" placeholder="Enter your usage e.g sms,call">
+            <button x-on:click="calculateBill">Calculate</button>
+            <template x-if="showResults2">
+                <p>Total: <span x-text="totalBill"></span></p>
+            </template>
+
+            <h3>Set the price of a call or SMS</h3>
+            <div>
+                <label for="type">Set Type:</label>
+                <select x-model="priceType" id="type">
+                    <option value="call">Call</option>
+                    <option value="sms">Sms</option>
+                </select>
+            </div>
+            <div>
+                <label for="price">Set Price:</label>
+                <input type="text" x-model="priceSet" id="price" placeholder="Enter price">
+            </div>
+            <button x-on:click="setPrice">Set Price</button>
+            <p x-text="message"></p>
+
+            <h2>3. Enough Airtime</h2>
+            <h3>Check if you have enough airtime</h3>
+            <p>Available Amount</p>
+            <input type="text" x-model="available" placeholder="Enter amount">
+            <p>Bill</p>
+            <input type="text" x-model="usage2" placeholder="Enter your usage e.g sms,data,call">
+            <button x-on:click="enoughAirtime">Check</button>
+            <p x-text="result"></p>
+        </div>
+    </div>
+</body>
+</html>

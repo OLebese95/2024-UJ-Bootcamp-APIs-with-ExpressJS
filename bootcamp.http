@@ -1,0 +1,52 @@
+
+
+# The Wordgame
+###
+
+GET http://localhost:3000/api/word_game?sentence=Hi my friend HTTP/1.1
+
+###
+
+# PhoneBill
+
+POST http://localhost:3000/api/phonebill/total HTTP/1.1
+content-type: application/json
+
+{
+    "total": "call, sms, call"
+}
+
+###
+
+# Phonebill prices 
+
+GET http://localhost:3000/api/phonebill/prices HTTP/1.1
+
+
+
+###G
+
+# Phonebill Price
+
+POST http://localhost:3000/api/phonebill/price HTTP/1.1
+content-type: application/json
+
+{
+  "type" : "call",
+  "price" : 1.85
+}
+
+
+
+###
+
+# Enough Airtime
+
+POST http://localhost:3000/api/enough HTTP/1.1
+content-type: application/json
+
+
+{
+   "usage": "data",
+   "available" : 50
+}
