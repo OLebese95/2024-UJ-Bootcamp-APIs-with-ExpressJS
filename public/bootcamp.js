@@ -21,7 +21,7 @@ document.addEventListener("alpine:init", () => {
       result: '',
 
       calculateBill() {
-        axios.post(`http://localhost:3000/api/phonebill/total`, {
+        axios.post(`/api/phonebill/total`, {
           total: this.usage
         })
         .then(response => {
@@ -39,7 +39,7 @@ document.addEventListener("alpine:init", () => {
       },
 
       getPrices() {
-        axios.get(`http://localhost:3000/api/phonebill/prices`)
+        axios.get(`/api/phonebill/prices`)
         .then(response => {
           this.prices = response.data;
         })
@@ -51,7 +51,7 @@ document.addEventListener("alpine:init", () => {
             return;
         }
 
-        axios.post(`http://localhost:3000/api/phonebill/price`, {
+        axios.post(`/api/phonebill/price`, {
             type: this.priceType,
             price: this.priceSet
         })
@@ -74,7 +74,7 @@ document.addEventListener("alpine:init", () => {
           return;
       }
 
-      axios.get(`http://localhost:3000/api/word_game`, {
+      axios.get(`/api/word_game`, {
           params: {
               sentence: this.sentence
           }
@@ -101,7 +101,7 @@ document.addEventListener("alpine:init", () => {
       return;
     }
 
-    axios.post(`http://localhost:3000/api/enough`, {
+    axios.post(`/api/enough`, {
       usage: this.usage2,
       available: parseFloat(this.available)
     })
