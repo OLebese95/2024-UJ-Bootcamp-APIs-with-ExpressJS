@@ -1,7 +1,4 @@
 
-[![Node.js CI](https://github.com/OLebese95/2024-UJ-Bootcamp-APIs-with-ExpressJS/actions/workflows/node.js.yml/badge.svg)](https://github.com/OLebese95/2024-UJ-Bootcamp-APIs-with-ExpressJS/actions/workflows/node.js.yml)
-
-
 
 # Bootcamp API Widget
 
